@@ -9,7 +9,7 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator,
+  EventResolver,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
@@ -33,6 +33,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { appRoutes } from './route';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
+import { HttpModule } from '@angular/http'
 
 declare let toastr: any;
 declare let jQuery : Object;
@@ -41,7 +42,9 @@ declare let jQuery : Object;
   imports: [BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule,],
+    ReactiveFormsModule,
+    HttpModule
+    ],
   declarations: [
     EventsAppComponent,
     EventsListComponent,
@@ -61,7 +64,7 @@ declare let jQuery : Object;
     ],
   providers: [
     EventService,
-    EventRouteActivator,
+    EventResolver,
     EventListResolver,
     VoterService,
     AuthService,
